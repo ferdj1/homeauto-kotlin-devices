@@ -1,0 +1,166 @@
+{
+  "messageType": "description",
+  "id": "philips-smartLights2",
+  "name": "Philips SmartLights 2",
+  "manufacturer": "Philips",
+  "type": "Lights",
+  "commands": [
+    {
+      "id": "turnOn",
+      "name": "Turn On",
+      "description": "Turns lights on",
+      "getSetType": "SET",
+      "displayText": null,
+      "parameterDescriptions": [],
+      "returnType": null
+    },
+    {
+      "id": "turnOff",
+      "name": "Turn Off",
+      "description": "Turns lights off",
+      "getSetType": "SET",
+      "displayText": null,
+      "parameterDescriptions": [],
+      "returnType": null
+    },
+    {
+      "id": "changeIntensity",
+      "name": "Change Intensity",
+      "description": "Changes intensity of the lights",
+      "getSetType": "SET",
+      "displayText": null,
+      "parameterDescriptions": [
+        {
+          "name": "Intensity",
+          "type": "number",
+          "limitType": "MIN_MAX",
+          "min": "0.0",
+          "max": "1.0",
+          "values": null,
+          "defaultValue": "1.0"
+        }
+      ],
+      "returnType": null
+    },
+    {
+      "id": "changeColor",
+      "name": "Change Color",
+      "description": "Changes color of the lights",
+      "getSetType": "SET",
+      "displayText": null,
+      "parameterDescriptions": [
+        {
+          "name": "Color",
+          "type": "string",
+          "limitType": "NO_LIMIT",
+          "min": null,
+          "max": null,
+          "values": null,
+          "defaultValue": "#ffffff"
+        }
+      ],
+      "returnType": null
+    },
+    {
+      "id": "changeTempo",
+      "name": "Change Tempo",
+      "description": "Changes tempo mode of the lights",
+      "getSetType": "SET",
+      "displayText": null,
+      "parameterDescriptions": [
+        {
+          "name": "Tempo",
+          "type": "string",
+          "limitType": "LIMITED_SET",
+          "min": null,
+          "max": null,
+          "values": ["None", "Slow", "Medium", "Fast", "Very Fast"],
+          "defaultValue": "None"
+        }
+      ],
+      "returnType": null
+    },
+    {
+      "id": "pickLights",
+      "name": "Pick Lights",
+      "description": "Pick which of the five lights will be turned on",
+      "getSetType": "SET",
+      "displayText": null,
+      "parameterDescriptions": [
+        {
+          "name": "Light1",
+          "type": "boolean",
+          "limitType": "UNDEFINED",
+          "min": null,
+          "max": null,
+          "values": null,
+          "defaultValue": "true"
+        },
+        {
+          "name": "Light2",
+          "type": "boolean",
+          "limitType": "UNDEFINED",
+          "min": null,
+          "max": null,
+          "values": null,
+          "defaultValue": "true"
+        },
+        {
+          "name": "Light3",
+          "type": "boolean",
+          "limitType": "UNDEFINED",
+          "min": null,
+          "max": null,
+          "values": null,
+          "defaultValue": "true"
+        },
+        {
+          "name": "Light4",
+          "type": "boolean",
+          "limitType": "UNDEFINED",
+          "min": null,
+          "max": null,
+          "values": null,
+          "defaultValue": "true"
+        },
+        {
+          "name": "Light5",
+          "type": "boolean",
+          "limitType": "UNDEFINED",
+          "min": null,
+          "max": null,
+          "values": null,
+          "defaultValue": "true"
+        }
+      ],
+      "returnType": null
+    },
+    {
+      "id": "getIntensity",
+      "name": "Get Intensity",
+      "description": "Gets currently set intensity",
+      "getSetType": "GET",
+      "displayText": "Intensity",
+      "parameterDescriptions": [],
+      "returnType": "number"
+    },
+    {
+      "id": "getColor",
+      "name": "Get Color",
+      "description": "Gets currently set color",
+      "getSetType": "GET",
+      "displayText": "Color",
+      "parameterDescriptions": [],
+      "returnType": "string"
+    },
+    {
+      "id": "getTempo",
+      "name": "Get Tempo",
+      "description": "Gets currently set tempo",
+      "getSetType": "GET",
+      "displayText": "Tempo",
+      "parameterDescriptions": [],
+      "returnType": "string"
+    }
+  ]
+}
