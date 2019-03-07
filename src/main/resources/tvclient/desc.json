@@ -33,6 +33,7 @@
         {
           "name": "Volume",
           "type": "integer",
+          "specialType": null,
           "limitType": "MIN_MAX",
           "min": "0",
           "max": "100",
@@ -52,6 +53,7 @@
         {
           "name": "Source",
           "type": "string",
+          "specialType": null,
           "limitType": "LIMITED_SET",
           "min": null,
           "max": null,
@@ -76,6 +78,7 @@
         {
           "name": "Channel",
           "type": "integer",
+          "specialType": null,
           "limitType": "MIN_MAX",
           "min": "0",
           "max": "999",
@@ -96,6 +99,7 @@
           "name": "Color1",
           "type": "string",
           "limitType": "NO_LIMIT",
+          "specialType": "color",
           "min": null,
           "max": null,
           "values": null,
@@ -105,6 +109,7 @@
           "name": "Color2",
           "type": "string",
           "limitType": "NO_LIMIT",
+          "specialType": "color",
           "min": null,
           "max": null,
           "values": null,
@@ -130,6 +135,15 @@
       "displayText": "Channel",
       "parameterDescriptions": [],
       "returnType": "integer"
+    },
+    {
+      "id": "getSource",
+      "name": "Get Source",
+      "description": "Gets currently set source",
+      "getSetType": "GET",
+      "displayText": "Source",
+      "parameterDescriptions": [],
+      "returnType": "string"
     }
   ]
 }

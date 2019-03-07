@@ -20,7 +20,7 @@ const val INTEGER_DATATYPE = "integer"
 const val BOOLEAN_DATATYPE = "boolean"
 const val NULL_DATATYPE = "null"
 
-class Device {
+object Device {
     private var allowedSourceSet = setOf("HDMI1", "HDMI2", "AV", "TV")
 
     private var power = false
@@ -74,6 +74,8 @@ class Device {
     fun getVolume() = volume
 
     fun getChannel() = channel
+
+    fun getSource() = source
 }
 
 @WebSocket
@@ -102,7 +104,7 @@ class DeviceWebSocket {
 
     @OnWebSocketMessage
     fun onMessage(message: String) {
-        println("Got message: $message")
+        //println("Got message: $message")
         handleMessage(session, message)
     }
 
@@ -112,6 +114,8 @@ class DeviceWebSocket {
 
         val deviceId = json["deviceId"].asText()
         val commandId = json["commandId"].asText()
+
+        var clientToServerMessageType = CLIENT_TO_SERVER_EXECUTED_COMMAND_MESSAGE_TYPE
 
         when (messageType) {
             EXECUTE_COMMAND_MESSAGE_TYPE -> {
@@ -127,7 +131,7 @@ class DeviceWebSocket {
 
                 val result = executeMethod(commandId, classArray, argumentArray).toString()
 
-                val executedCommand = ExecutedCommand(CLIENT_TO_SERVER_EXECUTED_COMMAND_MESSAGE_TYPE,
+                val executedCommand = ExecutedCommand(clientToServerMessageType,
                         deviceId,
                         commandId,
                         parameters,
@@ -142,13 +146,13 @@ class DeviceWebSocket {
 
 fun executeMethod(commandId: String, classArray: Array<Class<out Any>>, argumentArray: Array<out Any>): Any? {
     val method = Device::class.java.getMethod(commandId, *classArray)
-    return method.invoke(Device(), *argumentArray)
+    return method.invoke(Device, *argumentArray)
 }
 
 
 fun readJsonFile() = DeviceWebSocket::class.java.classLoader.getResource("tvclient/desc.json").readText()
 
-fun main(args: Array<String>) {
+fun main() {
     val webSocketString = "ws://localhost:8080/ws"
     val webSocketUri = URI(webSocketString)
     val clientUpgradeRequest = ClientUpgradeRequest()
@@ -163,6 +167,10 @@ fun main(args: Array<String>) {
 
     val scanner = Scanner(System.`in`)
     while (true) {
+        println("Type 'stop' to close connection.")
+        when(scanner.nextLine()) {
+            "stop" ->  if(webSocketClient.isStarted) webSocketClient.stop()
+        }
     }
 
 }

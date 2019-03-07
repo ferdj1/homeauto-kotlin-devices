@@ -33,6 +33,7 @@
         {
           "name": "Intensity",
           "type": "number",
+          "specialType": null,
           "limitType": "MIN_MAX",
           "min": "0.0",
           "max": "1.0",
@@ -52,6 +53,7 @@
         {
           "name": "Color",
           "type": "string",
+          "specialType": "color",
           "limitType": "NO_LIMIT",
           "min": null,
           "max": null,
@@ -71,6 +73,7 @@
         {
           "name": "Tempo",
           "type": "string",
+          "specialType": null,
           "limitType": "LIMITED_SET",
           "min": null,
           "max": null,
@@ -90,6 +93,7 @@
         {
           "name": "Light1",
           "type": "boolean",
+          "specialType": null,
           "limitType": "UNDEFINED",
           "min": null,
           "max": null,
@@ -99,6 +103,7 @@
         {
           "name": "Light2",
           "type": "boolean",
+          "specialType": null,
           "limitType": "UNDEFINED",
           "min": null,
           "max": null,
@@ -108,6 +113,7 @@
         {
           "name": "Light3",
           "type": "boolean",
+          "specialType": null,
           "limitType": "UNDEFINED",
           "min": null,
           "max": null,
@@ -117,6 +123,7 @@
         {
           "name": "Light4",
           "type": "boolean",
+          "specialType": null,
           "limitType": "UNDEFINED",
           "min": null,
           "max": null,
@@ -126,6 +133,7 @@
         {
           "name": "Light5",
           "type": "boolean",
+          "specialType": null,
           "limitType": "UNDEFINED",
           "min": null,
           "max": null,

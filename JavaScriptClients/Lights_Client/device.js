@@ -72,6 +72,7 @@ client.on('connect', function (connection) {
                             {
                                 "name": "Intensity",
                                 "type": "number",
+                                "specialType": null,
                                 "limitType": "MIN_MAX",
                                 "min": "0.0",
                                 "max": "1.0",
@@ -91,6 +92,7 @@ client.on('connect', function (connection) {
                             {
                                 "name": "Color",
                                 "type": "string",
+                                "specialType": "color",
                                 "limitType": "NO_LIMIT",
                                 "min": null,
                                 "max": null,
@@ -110,6 +112,7 @@ client.on('connect', function (connection) {
                             {
                                 "name": "Tempo",
                                 "type": "string",
+                                "specialType": null,
                                 "limitType": "LIMITED_SET",
                                 "min": null,
                                 "max": null,
@@ -129,6 +132,7 @@ client.on('connect', function (connection) {
                             {
                                 "name": "Light1",
                                 "type": "boolean",
+                                "specialType": null,
                                 "limitType": "UNDEFINED",
                                 "min": null,
                                 "max": null,
@@ -138,6 +142,7 @@ client.on('connect', function (connection) {
                             {
                                 "name": "Light2",
                                 "type": "boolean",
+                                "specialType": null,
                                 "limitType": "UNDEFINED",
                                 "min": null,
                                 "max": null,
@@ -147,6 +152,7 @@ client.on('connect', function (connection) {
                             {
                                 "name": "Light3",
                                 "type": "boolean",
+                                "specialType": null,
                                 "limitType": "UNDEFINED",
                                 "min": null,
                                 "max": null,
@@ -156,6 +162,7 @@ client.on('connect', function (connection) {
                             {
                                 "name": "Light4",
                                 "type": "boolean",
+                                "specialType": null,
                                 "limitType": "UNDEFINED",
                                 "min": null,
                                 "max": null,
@@ -165,6 +172,7 @@ client.on('connect', function (connection) {
                             {
                                 "name": "Light5",
                                 "type": "boolean",
+                                "specialType": null,
                                 "limitType": "UNDEFINED",
                                 "min": null,
                                 "max": null,
@@ -214,8 +222,10 @@ client.on('connect', function (connection) {
 function handleMessage(msg) {
     let jsonObject = JSON.parse(msg)
     let resultString = eval(jsonObject.commandId)(...jsonObject.parameters)
+    let messageType = 'clientToServerExecutedCommand'
+
     let resultJSON = {
-        "messageType": 'clientToServerExecutedCommand',
+        "messageType": messageType,
         "deviceId": jsonObject.deviceId,
         "commandId": jsonObject.commandId,
         "parameters": jsonObject.parameters,
@@ -238,7 +248,7 @@ function turnOff() {
 function changeIntensity(ints) {
     if (intensity >= 0.0 && intensity <= 1.0) {
         intensity = ints;
-        console.log('Changing volume to ' + intensity);
+        console.log('Changing intensity to ' + intensity);
     }
 }
 
