@@ -1,0 +1,19 @@
+{
+  "name": "heating_client",
+  "version": "1.0.0",
+  "description": "Heating device for homeauto-kotlin project",
+  "main": "device.js",
+  "dependencies": {
+    "websocket": "^1.0.28"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "heating",
+    "homeauto"
+  ],
+  "author": "ferdj1",
+  "license": "ISC"
+}

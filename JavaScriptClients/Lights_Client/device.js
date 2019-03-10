@@ -4,11 +4,11 @@ var WebSocketClient = require('websocket').client;
 var client = new WebSocketClient();
 
 //local settings
-var intensity = 1.0;
+var intensity = 100;
 var color = '#ffffff';
 var tempo = 'None';
 var power = 'OFF';
-var lightsPower = [true, true, true, true, true]
+var lightsPower = ['ON', 'ON', 'ON', 'ON', 'ON']
 
 client.on('connectFailed', function (error) {
     console.log('Connect Error: ' + error.toString());
@@ -71,13 +71,13 @@ client.on('connect', function (connection) {
                         "parameterDescriptions": [
                             {
                                 "name": "Intensity",
-                                "type": "number",
+                                "type": "integer",
                                 "specialType": null,
                                 "limitType": "MIN_MAX",
-                                "min": "0.0",
-                                "max": "1.0",
+                                "min": "0",
+                                "max": "100",
                                 "values": null,
-                                "defaultValue": "1.0"
+                                "defaultValue": "100"
                             }
                         ],
                         "returnType": null
@@ -137,7 +137,7 @@ client.on('connect', function (connection) {
                                 "min": null,
                                 "max": null,
                                 "values": null,
-                                "defaultValue": "true"
+                                "defaultValue": true
                             },
                             {
                                 "name": "Light2",
@@ -147,7 +147,7 @@ client.on('connect', function (connection) {
                                 "min": null,
                                 "max": null,
                                 "values": null,
-                                "defaultValue": "true"
+                                "defaultValue": true
                             },
                             {
                                 "name": "Light3",
@@ -157,7 +157,7 @@ client.on('connect', function (connection) {
                                 "min": null,
                                 "max": null,
                                 "values": null,
-                                "defaultValue": "true"
+                                "defaultValue": true
                             },
                             {
                                 "name": "Light4",
@@ -167,7 +167,7 @@ client.on('connect', function (connection) {
                                 "min": null,
                                 "max": null,
                                 "values": null,
-                                "defaultValue": "true"
+                                "defaultValue": true
                             },
                             {
                                 "name": "Light5",
@@ -177,10 +177,55 @@ client.on('connect', function (connection) {
                                 "min": null,
                                 "max": null,
                                 "values": null,
-                                "defaultValue": "true"
+                                "defaultValue": true
                             }
                         ],
                         "returnType": null
+                    },
+                    {
+                        "id": "getLight1",
+                        "name": "Get Light 1",
+                        "description": "Gets value that shows if light 1 is on/off",
+                        "getSetType": "GET",
+                        "displayText": "Light 1",
+                        "parameterDescriptions": [],
+                        "returnType": "string"
+                    },
+                    {
+                        "id": "getLight2",
+                        "name": "Get Light 2",
+                        "description": "Gets value that shows if light 2 is on/off",
+                        "getSetType": "GET",
+                        "displayText": "Light 2",
+                        "parameterDescriptions": [],
+                        "returnType": "string"
+                    },
+                    {
+                        "id": "getLight3",
+                        "name": "Get Light 3",
+                        "description": "Gets value that shows if light 3 is on/off",
+                        "getSetType": "GET",
+                        "displayText": "Light 3",
+                        "parameterDescriptions": [],
+                        "returnType": "string"
+                    },
+                    {
+                        "id": "getLight4",
+                        "name": "Get Light 4",
+                        "description": "Gets value that shows if light 4 is on/off",
+                        "getSetType": "GET",
+                        "displayText": "Light 4",
+                        "parameterDescriptions": [],
+                        "returnType": "string"
+                    },
+                    {
+                        "id": "getLight5",
+                        "name": "Get Light 5",
+                        "description": "Gets value that shows if light 5 is on/off",
+                        "getSetType": "GET",
+                        "displayText": "Light 5",
+                        "parameterDescriptions": [],
+                        "returnType": "string"
                     },
                     {
                         "id": "getIntensity",
@@ -237,16 +282,16 @@ function handleMessage(msg) {
 
 function turnOn() {
     power = 'ON';
-    console.log('Turning TV on...');
+    console.log('Turning lights on...');
 }
 
 function turnOff() {
     power = 'OFF';
-    console.log('Turning TV off...');
+    console.log('Turning lights off...');
 }
 
 function changeIntensity(ints) {
-    if (intensity >= 0.0 && intensity <= 1.0) {
+    if (intensity >= 0 && intensity <= 100) {
         intensity = ints;
         console.log('Changing intensity to ' + intensity);
     }
@@ -263,11 +308,11 @@ function changeTempo(tem) {
 }
 
 function pickLights(light1, light2, light3, light4, light5) {
-    lightsPower[0] = light1
-    lightsPower[1] = light2
-    lightsPower[2] = light3
-    lightsPower[3] = light4
-    lightsPower[4] = light5
+    lightsPower[0] = light1 == 'true' ? 'ON' : 'OFF'
+    lightsPower[1] = light2 == 'true' ? 'ON' : 'OFF'
+    lightsPower[2] = light3 == 'true' ? 'ON' : 'OFF'
+    lightsPower[3] = light4 == 'true' ? 'ON' : 'OFF'
+    lightsPower[4] = light5 == 'true' ? 'ON' : 'OFF'
 }
 
 function getIntensity() {
@@ -283,6 +328,26 @@ function getColor() {
 function getTempo() {
     //console.log('Get tempo: ' + tempo);
     return tempo;
+}
+
+function getLight1() {
+    return lightsPower[0]
+}
+
+function getLight2() {
+    return lightsPower[1]
+}
+
+function getLight3() {
+    return lightsPower[2]
+}
+
+function getLight4() {
+    return lightsPower[3]
+}
+
+function getLight5() {
+    return lightsPower[4]
 }
 
 client.connect('ws://localhost:8080/ws');

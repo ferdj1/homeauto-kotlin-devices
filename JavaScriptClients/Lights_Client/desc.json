@@ -32,13 +32,13 @@
       "parameterDescriptions": [
         {
           "name": "Intensity",
-          "type": "number",
+          "type": "integer",
           "specialType": null,
           "limitType": "MIN_MAX",
-          "min": "0.0",
-          "max": "1.0",
+          "min": "0",
+          "max": "100",
           "values": null,
-          "defaultValue": "1.0"
+          "defaultValue": "100"
         }
       ],
       "returnType": null
@@ -98,7 +98,7 @@
           "min": null,
           "max": null,
           "values": null,
-          "defaultValue": "true"
+          "defaultValue": true
         },
         {
           "name": "Light2",
@@ -108,7 +108,7 @@
           "min": null,
           "max": null,
           "values": null,
-          "defaultValue": "true"
+          "defaultValue": true
         },
         {
           "name": "Light3",
@@ -118,7 +118,7 @@
           "min": null,
           "max": null,
           "values": null,
-          "defaultValue": "true"
+          "defaultValue": true
         },
         {
           "name": "Light4",
@@ -128,7 +128,7 @@
           "min": null,
           "max": null,
           "values": null,
-          "defaultValue": "true"
+          "defaultValue": true
         },
         {
           "name": "Light5",
@@ -138,10 +138,55 @@
           "min": null,
           "max": null,
           "values": null,
-          "defaultValue": "true"
+          "defaultValue": true
         }
       ],
       "returnType": null
+    },
+    {
+      "id": "getLight1",
+      "name": "Get Light 1",
+      "description": "Gets value that shows if light 1 is on/off",
+      "getSetType": "GET",
+      "displayText": "Light 1",
+      "parameterDescriptions": [],
+      "returnType": "string"
+    },
+    {
+      "id": "getLight2",
+      "name": "Get Light 2",
+      "description": "Gets value that shows if light 2 is on/off",
+      "getSetType": "GET",
+      "displayText": "Light 2",
+      "parameterDescriptions": [],
+      "returnType": "string"
+    },
+    {
+      "id": "getLight3",
+      "name": "Get Light 3",
+      "description": "Gets value that shows if light 3 is on/off",
+      "getSetType": "GET",
+      "displayText": "Light 3",
+      "parameterDescriptions": [],
+      "returnType": "string"
+    },
+    {
+      "id": "getLight4",
+      "name": "Get Light 4",
+      "description": "Gets value that shows if light 4 is on/off",
+      "getSetType": "GET",
+      "displayText": "Light 4",
+      "parameterDescriptions": [],
+      "returnType": "string"
+    },
+    {
+      "id": "getLight5",
+      "name": "Get Light 5",
+      "description": "Gets value that shows if light 5 is on/off",
+      "getSetType": "GET",
+      "displayText": "Light 5",
+      "parameterDescriptions": [],
+      "returnType": "string"
     },
     {
       "id": "getIntensity",
