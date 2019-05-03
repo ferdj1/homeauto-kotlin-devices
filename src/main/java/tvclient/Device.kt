@@ -153,7 +153,7 @@ fun executeMethod(commandId: String, classArray: Array<Class<out Any>>, argument
 fun readJsonFile() = DeviceWebSocket::class.java.classLoader.getResource("tvclient/desc.json").readText()
 
 fun main() {
-    val webSocketString = "ws://localhost:8080/ws"
+    val webSocketString = "ws://192.168.100.54:8080/ws"
     val webSocketUri = URI(webSocketString)
     val clientUpgradeRequest = ClientUpgradeRequest()
 
