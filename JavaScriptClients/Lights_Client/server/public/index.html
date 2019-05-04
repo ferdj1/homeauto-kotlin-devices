@@ -5,13 +5,20 @@
     <title>Lights WiFi Setup</title>
 </head>
 <body style="font-family: Arial, sans-serif">
-    <h2>Enter SSID and password of your network to connect device to it</h2>
     <form action="/credentials" method="post">
+        <h2>Enter SSID and password of your network to connect device to it</h2>
         SSID:
         <input type="text" name="ssid">
         <br>
         Password:
         <input type="text" name="password">
+        <hr>
+        <h2>Enter IP address and port of the main server</h2>
+        Server's IP address:
+        <input type="text" name="ip">
+        <br>
+        Server's port:
+        <input type="text" name="port">
         <input type="submit" value="Submit">
     </form>
 </body>

@@ -20,8 +20,11 @@ app.post('/credentials', urlencodedParser, function (req, res) {
     ssid = req.body.ssid
     password = req.body.password
 
+    ip = req.body.ip
+    port = req.body.port
+
     // Write ssid and password to a file
-    fs.writeFile("../credentials.txt", ssid + "\n" + password, function (err) {
+    fs.writeFile("../credentials.txt", ssid + "\n" + password + "\n" + ip + "\n" + port, function (err) {
         //console.log(err)
     })
     console.log('File saved!')
