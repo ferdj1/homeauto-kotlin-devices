@@ -31,7 +31,7 @@ cleanup() {
 
     # Kill AP
     echo 'Shutting down Access Point...'
-    nmcli connection down philipsLights-Init53564
+    nmcli connection down heatingSystem-Init535
 
     sleep 5
     kill -9 $$
@@ -69,11 +69,11 @@ then
     else
         echo "No connection. Setting up Access Point and Server..."
         # Setup Access Point (This will create AP that will create website accessible on 10.42.0.1:3000)
-        nmcli connection show philipsLights-Init53564 > /dev/null
+        nmcli connection show heatingSystem-Init535 > /dev/null
         if [ $? != 0 ]; then
-            nmcli device wifi hotspot con-name philipsLights-Init53564 ssid philipsLights-Init53564 band bg password pltvws43hd535
+            nmcli device wifi hotspot con-name heatingSystem-Init535 ssid heatingSystem-Init535 band bg password hstvws43hd535
         else
-            nmcli connection up philipsLights-Init53564
+            nmcli connection up heatingSystem-Init535
         fi
 
         echo 'Access Point is running!'
@@ -98,7 +98,7 @@ then
 
                 # Kill AP
                 echo 'Shutting down Access Point...'
-                nmcli connection down philipsLights-Init53564
+                nmcli connection down heatingSystem-Init535
 
                 # Connect to WiFi using given credentials
                 sleep 5

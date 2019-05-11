@@ -350,4 +350,6 @@ function getLight5() {
     return lightsPower[4]
 }
 
-client.connect('ws://localhost:8080/ws');
+var ip = process.argv[2]
+var port = process.argv[3]
+client.connect('ws://' + ip + ':' + port + '/ws');
