@@ -3,23 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Lights WiFi Setup</title>
+    <link rel="stylesheet" href="css/bulma.css">
 </head>
 <body style="font-family: Arial, sans-serif">
-    <form action="/credentials" method="post">
-        <h2>Enter SSID and password of your network to connect device to it</h2>
-        SSID:
-        <input type="text" name="ssid">
-        <br>
-        Password:
-        <input type="text" name="password">
-        <hr>
-        <h2>Enter IP address and port of the main server</h2>
-        Server's IP address:
-        <input type="text" name="ip">
-        <br>
-        Server's port:
-        <input type="text" name="port">
-        <input type="submit" value="Submit">
-    </form>
+<form class="container" action="/credentials" method="post">
+    <h2 class="subtitle">Enter SSID and password of your network to connect device to it</h2>
+    <div class="field">
+        <label class="label">SSID:</label>
+        <div class="control">
+            <input class="input" type="text" name="ssid">
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Password:</label>
+        <div class="control">
+            <input class="input" type="text" name="password">
+        </div>
+    </div>
+    <hr>
+    <h2 class="subtitle">Enter IP address and port of the main server</h2>
+    <div class="field">
+        <label class="label">Server's IP address:</label>
+        <div class="control">
+            <input class="input" type="text" name="ip">
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Server's port:</label>
+        <div class="control">
+            <input class="input" type="text" name="port">
+        </div>
+    </div>
+    <div class="control">
+        <input class="button is-primary" type="submit" value="Submit">
+    </div>
+</form>
 </body>
 </html>
